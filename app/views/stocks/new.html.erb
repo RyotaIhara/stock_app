@@ -1,0 +1,17 @@
+<%= form_for @stock do |form| %>
+    <table>
+        <tr>
+            <th><%= form.label :productName, "商品名" %></th>
+            <td><%= form.text_field :productName %></td>
+        </tr>
+        <tr>
+            <th><%= form.label :price, "単価" %></th>
+            <td><%= form.text_field :price %></td>
+        </tr>
+        <tr>
+            <th><%= form.label :quantity, "個数" %></th>
+            <td><%= form.text_field :quantity %></td>
+        </tr>
+    </table>
+    <div><%= form.submit %></div>
+<% end %> 

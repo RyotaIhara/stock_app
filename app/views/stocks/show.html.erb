@@ -1,0 +1,18 @@
+<h1>在庫の詳細</h1>
+
+<%= link_to "会員一覧", :stocks %>
+
+<table>
+    <tr>
+        <th width="150">商品名</th>
+        <td><%= @stock.productName %></td>
+    </tr>
+    <tr>
+        <th>価格</th>
+        <td><%= @stock.price %></td>
+    </tr>
+    <tr>
+        <th>量</th>
+        <td><%= @stock.quantity %></td>
+    </tr>
+</table>
