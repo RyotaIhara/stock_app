@@ -31,9 +31,8 @@ class StocksController < ApplicationController
     #ストロングパラメーター
     private def stock_params
         params.require(:stock).permit(
-            :productName,
-            :price,
-            :quantity
+            :quantity,
+            :product_id
         )
     end
 end

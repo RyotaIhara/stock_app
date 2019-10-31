@@ -1,12 +1,10 @@
-<%= form_for @stock do |form| %>
+<%= form_with(model: @stock, local: true) do |form| %>
     <table>
         <tr>
             <th><%= form.label :productName, "商品名" %></th>
-            <td><%= form.text_field :productName %></td>
-        </tr>
-        <tr>
-            <th><%= form.label :price, "単価" %></th>
-            <td><%= form.text_field :price %></td>
+            <td>
+            <%= form.collection_select :product_id, Product.all, :id, :productName %>
+            </td>
         </tr>
         <tr>
             <th><%= form.label :quantity, "個数" %></th>
