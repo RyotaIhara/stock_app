@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Productname:</strong>
+  <strong>商品名:</strong>
   <%= @product.productName %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Pr価格ce:</strong>
   <%= @product.price %>
 </p>
 
 <p>
-  <strong>Remark:</strong>
+  <strong>備考:</strong>
   <%= @product.remark %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to '編集', edit_product_path(@product) %> |
+<%= link_to '商品一覧に戻る', products_path %>

@@ -1,13 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Products</h1>
+<div class="container">
 
-<table>
+<h1 class="label">商品一覧</h1>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Productname</th>
-      <th>Price</th>
-      <th>Remark</th>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>備考</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,9 +20,9 @@
         <td><%= product.productName %></td>
         <td><%= product.price %></td>
         <td><%= product.remark %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細', product %>
+        <%= link_to '編集', edit_product_path(product) %>
+        <%= link_to '削除', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,7 @@
 
 <br>
 
-<%= link_to 'New Product', new_product_path %>
+<div><%= link_to '商品の新規作成', new_product_path %></div>
+<div><%= link_to "在庫一覧", :stocks %></div>
+
+</div>
