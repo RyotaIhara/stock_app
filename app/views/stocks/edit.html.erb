@@ -1,0 +1,31 @@
+<div class="container">
+<h1 class="label">在庫の編集</h1>
+
+<%= form_with(model: @stock, local: true) do |form| %>
+    <% if @stock.errors.any? %>
+        <div id="error_explanation">
+        <h2><%= pluralize(stock.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <ul>
+            <% @stock.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+        <%= form.label :productName, "商品名" %>
+        <%= form.collection_select :product_id, Product.all, :id, :productName %>
+    </div>
+    <div class="form-group">
+        <%= form.label :quantity, "個数" %>
+        <%= form.text_field :quantity %>
+    </div>
+
+    <%= form.submit %>
+<% end %>
+
+<%= link_to '詳細', @stock %> |
+<%= link_to '在庫一覧に戻る', stocks_path %>
+</div>

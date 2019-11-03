@@ -3,6 +3,18 @@
     <h1 class="label">入荷 or 出荷</h1>
 
     <%= form_with(model: @stock, local: true) do |form| %>
+        <% if @stock.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(stock.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+            <ul>
+                <% @stock.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+
         <div class="form-group">
             <%= form.label :productName, "商品名" %>
             <%= form.collection_select :product_id, Product.all, :id, :productName %>

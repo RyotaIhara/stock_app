@@ -26,8 +26,10 @@ class StocksController < ApplicationController
                 logger.debug("増える処理に入りました")
                 @stock.increment(:quantity, @qty)
                 if @stock.save
+                    logger.debug("OK〜")
                     redirect_to :stocks, notice: "在庫を新規登録しました"
                 else
+                    logger.debug("エラ〜")
                     render "new"
                 end
             #出荷の場合
@@ -53,6 +55,20 @@ class StocksController < ApplicationController
             #出荷のため在庫が存在しませんのエラーが返す
             else
             end
+        end
+    end
+
+    def edit
+        @stock = Stock.find(params[:id])
+    end
+
+    def update
+        @stock = Stock.find(params[:id])
+        @stock.assign_attributes(stock_params)
+        if @stock.save
+            redirect_to @stock, notice: "在庫を更新しました"
+        else
+            render "edit"
         end
     end
 

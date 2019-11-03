@@ -1,8 +1,11 @@
-<h1>在庫の詳細</h1>
+<div class="container">
+<p id="notice"><%= notice %></p>
+<h1 class="label">在庫の詳細</h1>
 
-<%= link_to "会員一覧", :stocks %>
+<%= link_to '編集', edit_stock_path(@stock) %> |
+<%= link_to "在庫一覧へ", :stocks %>
 
-<table>
+<table class="table">
     <tr>
         <th width="150">商品名</th>
         <td><%= @stock.product.productName %></td>
@@ -16,3 +19,5 @@
         <td><%= @stock.quantity %></td>
     </tr>
 </table>
+
+</div>

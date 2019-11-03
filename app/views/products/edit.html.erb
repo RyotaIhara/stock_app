@@ -1,6 +1,8 @@
-<h1>Editing Product</h1>
+<div class="container">
+<h1 class="label">商品の編集</h1>
 
 <%= render 'form', product: @product %>
 
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<%= link_to '詳細', @product %> |
+<%= link_to '商品一覧に戻る', products_path %>
+</div>
