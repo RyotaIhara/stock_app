@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root :to => 'stocks#index'
   resources :products
   resources :stocks, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :members
 end

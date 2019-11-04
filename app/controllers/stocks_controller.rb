@@ -83,7 +83,7 @@ class StocksController < ApplicationController
     def destroy
         @stock = Stock.find(params[:id])
         @stock.destroy
-        redirect_to :stocks, notice: "会員の削除しました。"
+        redirect_to :stocks, notice: "在庫を削除しました。"
     end
 
     #ストロングパラメーター
