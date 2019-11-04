@@ -10,6 +10,7 @@ class StocksController < ApplicationController
     #新規作成フォーム
     def new
         @stock = Stock.new
+        @errors = Array.new
     end
 
     def create
@@ -19,27 +20,33 @@ class StocksController < ApplicationController
         #在庫の存在チェック
         if Stock.exists?(product_id: params.require(:stock)["product_id"])
             logger.debug("条件OKです")
-            @stock = Stock.find_by(product_id: params.require(:stock)["product_id"])
-            #@qty = params.require(:stock)["quantity"])
-            #入荷の場合
-            if "1" == @inOutFlg
-                logger.debug("増える処理に入りました")
-                @stock.increment(:quantity, @qty)
-                if @stock.save
-                    logger.debug("OK〜")
-                    redirect_to :stocks, notice: "在庫を新規登録しました"
-                else
-                    logger.debug("エラ〜")
-                    render "new"
-                end
-            #出荷の場合
+            @stock = Stock.find_by(product_id: params.require(:stock)["product_id"])         
+            @stock.validate_qty(@inOutFlg, @qty, @stock.quantity.to_i)
+            if @stock.errors.count > 0
+                logger.debug("エラーがあります")
+                @errors = @stock.errors.full_messages
+                logger.debug(@errors)
+                @stock = Stock.new
+                render "new"
             else
-                logger.debug("減る処理に入りました")
-                @stock.decrement(:quantity, @qty)
-                if @stock.save
-                    redirect_to :stocks, notice: "在庫を新規登録しました"
+                #入荷の場合
+                if "1" == @inOutFlg
+                    logger.debug("増える処理に入りました")
+                    @stock.increment(:quantity, @qty)
+                    if @stock.save
+                        redirect_to :stocks, notice: "入荷が完了しました"
+                    else
+                        render "new"
+                    end
+                #出荷の場合
                 else
-                    render "new"
+                    logger.debug("減る処理に入りました")
+                    @stock.decrement(:quantity, @qty)
+                    if @stock.save
+                        redirect_to :stocks, notice: "出荷が完了しました"
+                    else
+                        render "new"
+                    end
                 end
             end
         else

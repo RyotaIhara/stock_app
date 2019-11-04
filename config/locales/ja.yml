@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      stock: 在庫
+      product: 商品
+    attributes:
+      product:
+        productName: 商品名
+        price: 価格
+        remark: 備考
+      stock:
+        shortage: 欠品
+        qty: 数量
+        quantity: 数量

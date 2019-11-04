@@ -5,10 +5,21 @@
     <%= form_with(model: @stock, local: true) do |form| %>
         <% if @stock.errors.any? %>
             <div id="error_explanation">
-            <h2><%= pluralize(stock.errors.count, "error") %> prohibited this product from being saved:</h2>
+                <h4>エラーがあります:</h4>
+
+                <ul>
+                    <% @stock.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <% if @errors.any? %>
+            <div id="error_explanation">
+            <h4>エラーがあります:</h4>
 
             <ul>
-                <% @stock.errors.full_messages.each do |message| %>
+                <% @errors.each do |message| %>
                 <li><%= message %></li>
                 <% end %>
             </ul>
@@ -30,4 +41,5 @@
 
         <div><%= form.submit %></div>
     <% end %> 
+    <%= link_to 'Back', stocks_path %>
 </div>
