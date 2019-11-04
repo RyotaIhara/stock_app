@@ -1,45 +1,42 @@
-<div class="container">
+<h1 class="label">入荷 or 出荷</h1>
 
-    <h1 class="label">入荷 or 出荷</h1>
-
-    <%= form_with(model: @stock, local: true) do |form| %>
-        <% if @stock.errors.any? %>
-            <div id="error_explanation">
-                <h4>エラーがあります:</h4>
-
-                <ul>
-                    <% @stock.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                    <% end %>
-                </ul>
-            </div>
-        <% end %>
-        <% if @errors.any? %>
-            <div id="error_explanation">
+<%= form_with(model: @stock, local: true) do |form| %>
+    <% if @stock.errors.any? %>
+        <div id="error_explanation">
             <h4>エラーがあります:</h4>
 
             <ul>
-                <% @errors.each do |message| %>
+                <% @stock.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
                 <% end %>
             </ul>
-            </div>
-        <% end %>
+        </div>
+    <% end %>
+    <% if @errors.any? %>
+        <div id="error_explanation">
+        <h4>エラーがあります:</h4>
 
-        <div class="form-group">
-            <%= form.label :productName, "商品名" %>
-            <%= form.collection_select :product_id, Product.all, :id, :productName %>
+        <ul>
+            <% @errors.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
         </div>
-        <div class="form-group">
-            <%= form.label :quantity, "個数" %>
-            <%= form.text_field :quantity %>
-        </div>
-        <div class="form-group">
-            <%= form.label :inOutFlg, "入荷or出荷" %>
-            <%= form.select :inOutFlg, [['入荷', 1], ['出荷', 2]] %>
-        </div>
+    <% end %>
 
-        <div><%= form.submit %></div>
-    <% end %> 
-    <%= link_to 'Back', stocks_path %>
-</div>
+    <div class="form-group">
+        <%= form.label :productName, "商品名" %>
+        <%= form.collection_select :product_id, Product.all, :id, :productName %>
+    </div>
+    <div class="form-group">
+        <%= form.label :quantity, "個数" %>
+        <%= form.text_field :quantity %>
+    </div>
+    <div class="form-group">
+        <%= form.label :inOutFlg, "入荷or出荷" %>
+        <%= form.select :inOutFlg, [['入荷', 1], ['出荷', 2]] %>
+    </div>
+
+    <div><%= form.submit %></div>
+<% end %> 
+<%= link_to 'Back', stocks_path %>

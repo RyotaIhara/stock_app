@@ -18,3 +18,12 @@
     margin-top: 30px;
     margin-bottom: 20px
 }
+
+nav {
+    margin-top: 20px
+}
+
+li.nav-item {
+    margin-right: 10px;
+    font-size: 15px
+}
