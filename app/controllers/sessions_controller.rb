@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
 
     def create
         logger.debug("作成処理に入りました")
-        @member = Member.find_by(name: params[:name])
-        if @member && @member.authenticate(params[:password])
+        @user = User.find_by(name: params[:name])
+        if @user && @user.authenticate(params[:password])
             logger.debug("パスワードが一致しました")
-            session[:member_id] = @member.id
-            redirect_to :root
+            session[:user_id] = @user.id
+            redirect_to controller: 'stocks', action: 'index'
         else
             logger.debug("エラーです")
             flash.alert = "名前とパスワードが一致しません"
@@ -18,7 +18,12 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.delete(:member_id)
+        session.delete(:user_id)
+        redirect_to :root
+    end
+
+    def logout
+        session[:user_id] = nil
         redirect_to :root
     end
 end

@@ -1,10 +1,10 @@
-<%= form_with(model: member, local: true) do |form| %>
-    <% if member.errors.any? %>
+<%= form_with(model: user, local: true) do |form| %>
+    <% if user.errors.any? %>
       <div id="error_explanation">
         <h4>エラーがあります:</h4>
   
         <ul>
-          <% member.errors.full_messages.each do |message| %>
+          <% user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
@@ -23,7 +23,7 @@
   
     <div class="form-group">
       <%= form.label :パスワード %>
-      <%= form.text_field :password_digest %>
+      <%= form.text_field :password %>
     </div>
 
     <div class="form-group">
