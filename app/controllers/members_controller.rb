@@ -45,7 +45,7 @@ class MembersController < ApplicationController
         params.require(:member).permit(
             :name,
             :email,
-            :password,
+            :password_digest,
             :administrator
         )
     end

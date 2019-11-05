@@ -8,10 +8,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    </head>
+  </head>
 
   <body>
     <div class="container">
+      <% if current_member %>
+        <ul class-"account-menu" %>
+          <%= current_member.name + "さん" %>
+          <%= menu_link_to "ログアウト", :session,
+            method: :delete, data: { confirm: "ログアウトしますか？" } %>
+        </ul>
+      <% else %>
+        <%= link_to "ログイン", :new_session %>
+      <% end %>
+
       <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
         <a class="navbar-brand" href="/stocks">在庫管理システム</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

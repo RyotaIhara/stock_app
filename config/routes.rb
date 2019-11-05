@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   resources :products
   resources :stocks, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :members
+  resources :sessions, only: [:new, :create, :destroy]
 end
