@@ -19,11 +19,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete(:user_id)
-        redirect_to :root
-    end
-
-    def logout
-        session[:user_id] = nil
-        redirect_to :root
+        redirect_to :new_session
     end
 end

@@ -1,4 +1,6 @@
 class StocksController < ApplicationController
+    before_action :login_required
+
     def index
         @stocks = Stock.all
     end
