@@ -26,7 +26,10 @@
       <%= form.text_field :password, class: 'form-control' %>
     </div>
 
-    <% if current_user %>
+    <% 
+      @administrator = getAdministrator
+      if current_user && @administrator
+    %>
       <div class="form-group">
         <%= form.label :管理者 %>
         <%= form.check_box :administrator, class: 'form-control' %>

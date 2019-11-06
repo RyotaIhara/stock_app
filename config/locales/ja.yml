@@ -3,6 +3,7 @@ ja:
     models:
       stock: 在庫
       product: 商品
+      user: ユーザー
     attributes:
       product:
         productName: 商品名
@@ -12,3 +13,7 @@ ja:
         shortage: 欠品
         qty: 数量
         quantity: 数量
+      user:
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
