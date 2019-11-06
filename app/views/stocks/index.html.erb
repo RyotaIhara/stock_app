@@ -1,4 +1,7 @@
+<p id="notice"><%= notice %></p>
 <h1 class="label">在庫一覧</h1>
+
+<div><%= link_to "入荷および出荷", :new_stock %></div>
 
 <table class="table">
     <tr>
@@ -20,6 +23,3 @@
     </tr>
         <% end %>
 </table>
-
-<div><%= link_to "入荷および出荷", :new_stock %></div>
-<div><%= link_to "商品一覧", :products %></div>

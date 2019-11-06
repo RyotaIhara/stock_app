@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
-
 <h1 class="label">商品一覧</h1>
+
+<div><%= link_to '商品の新規作成', new_product_path %></div>
 
 <table class="table">
   <thead>
@@ -27,6 +28,3 @@
 </table>
 
 <br>
-
-<div><%= link_to '商品の新規作成', new_product_path %></div>
-<div><%= link_to "在庫一覧", :stocks %></div>

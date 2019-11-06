@@ -13,10 +13,14 @@
   <body>
     <div class="container">
       <% if current_user %>
-        <ul class="account-menu">
-          <%= current_user.name + "さん" %>
-          <%= link_to 'ログアウト', "/logout", data: { confirm: 'ログアウトしますか?' } %>
-        </ul>
+        
+        <div class="accountBar", style="text-align:right; margin-top: 8px" >
+          <ul class="account-menu">
+            <%= current_user.name + "さん" %>
+            <%= link_to 'ログアウト', "/logout", data: { confirm: 'ログアウトしますか?' } %>
+          </ul>
+        </div>
+
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
           <a class="navbar-brand" href="/stocks">在庫管理システム</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,9 +36,7 @@
             </ul>
           </div>
         </nav>
-      <% end %>
-
-      
+      <% end %>  
 
       <%= yield %>
     </div>
