@@ -13,20 +13,20 @@
 
   <div class="form-group">
     <%= form.label :商品名 %>
-    <%= form.text_field :productName %>
+    <%= form.text_field :productName, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :価格 %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :備考 %>
-    <%= form.text_field :remark %>
+    <%= form.text_field :remark, class: 'form-control' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %>
   </div>
 <% end %>

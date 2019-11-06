@@ -26,17 +26,17 @@
 
     <div class="form-group">
         <%= form.label :productName, "商品名" %>
-        <%= form.collection_select :product_id, Product.all, :id, :productName %>
+        <%= form.collection_select :product_id, Product.all, :id, :productName, {}, class: 'form-control' %>
     </div>
     <div class="form-group">
         <%= form.label :quantity, "個数" %>
-        <%= form.text_field :quantity %>
+        <%= form.text_field :quantity, class: 'form-control' %>
     </div>
     <div class="form-group">
         <%= form.label :inOutFlg, "入荷or出荷" %>
-        <%= form.select :inOutFlg, [['入荷', 1], ['出荷', 2]] %>
+        <%= form.select :inOutFlg, [['入荷', 1], ['出荷', 2]], {}, :class => 'form-control' %>
     </div>
 
-    <div><%= form.submit %></div>
+    <div><%= form.submit("送信", class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %></div>
 <% end %> 
-<%= link_to 'Back', stocks_path %>
+<%= link_to '在庫一覧へ', stocks_path %>

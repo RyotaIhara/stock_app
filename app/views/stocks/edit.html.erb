@@ -15,14 +15,14 @@
 
     <div class="form-group">
         <%= form.label :productName, "商品名" %>
-        <%= form.collection_select :product_id, Product.all, :id, :productName %>
+        <%= form.collection_select :product_id, Product.all, :id, :productName, {}, :class => 'form-control' %>
     </div>
     <div class="form-group">
         <%= form.label :quantity, "個数" %>
-        <%= form.text_field :quantity %>
+        <%= form.text_field :quantity, class: 'form-control' %>
     </div>
 
-    <%= form.submit %>
+    <%= form.submit("更新", class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %>
 <% end %>
 
 <%= link_to '詳細', @stock %> |

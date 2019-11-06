@@ -13,25 +13,25 @@
   
     <div class="form-group">
       <%= form.label :ユーザー名 %>
-      <%= form.text_field :name %>
+      <%= form.text_field :name, class: 'form-control' %>
     </div>
   
     <div class="form-group">
       <%= form.label :メールアドレス %>
-      <%= form.text_field :email %>
+      <%= form.text_field :email, class: 'form-control' %>
     </div>
   
     <div class="form-group">
       <%= form.label :パスワード %>
-      <%= form.text_field :password %>
+      <%= form.text_field :password, class: 'form-control' %>
     </div>
 
     <div class="form-group">
       <%= form.label :管理者 %>
-      <%= form.check_box :administrator %>
+      <%= form.check_box :administrator, class: 'form-control' %>
     </div>
   
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit("保存", class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %>
     </div>
   <% end %>

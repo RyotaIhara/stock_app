@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_filter :login_required
+  before_action :login_required
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
