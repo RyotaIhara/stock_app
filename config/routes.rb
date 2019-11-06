@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   resources :stocks, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :users
   resources :sessions, only: [:new, :create]
+  resources :accounts, only: [:new, :create]
   get '/logout' => 'sessions#destroy', :as => :logout
 end

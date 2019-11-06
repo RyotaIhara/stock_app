@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+    before_action :login_required, only: %i[index show]
+    before_action :administrator_required, only: %i[edit update destroy]
+
     def index
         @users = User.all
     end
@@ -18,7 +21,12 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            redirect_to :users, notice: "会員を新規登録しました"
+            unless current_user
+                session[:user_id] = @user.id
+                redirect_to :stocks, notice: "ようこそ"
+            else
+                redirect_to :users, notice: "会員を新規登録しました"
+            end
         else
             render "new"
         end

@@ -8,7 +8,6 @@ class Stock < ApplicationRecord
         }
 
     def validate_qty(inOutFlg, qty, originalQty)
-        logger.debug("エラーチェックに入りました")
         if qty == 0
             errors.add(:qty, "が入力されていません")
         end

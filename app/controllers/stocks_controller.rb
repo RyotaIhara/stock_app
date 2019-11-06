@@ -63,6 +63,10 @@ class StocksController < ApplicationController
                 end
             #出荷のため在庫が存在しませんのエラーが返す
             else
+                @stock = Stock.new
+                @stock.errors.add(:shortage, "が発生しました")
+                @errors = Array.new
+                render "new"
             end
         end
     end
