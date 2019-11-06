@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
     def new
+        if current_user
+            redirect_to controller: 'stocks', action: 'index'
+        end
     end
 
     def create
