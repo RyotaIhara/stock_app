@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -19,11 +20,49 @@
     margin-bottom: 20px
 }
 
-nav {
-    margin-top: 20px
+a:hover {
+    background-color: transparent;
 }
 
-li.nav-item {
-    margin-right: 10px;
-    font-size: 15px
+/* 1000px　以上 */
+
+
+/* サイト名 */
+.site h1.title a {
+    color: #000000;
+    text-decoration: none
+}
+
+.site h1.title {
+    margin: 0;
+    font-size: 30px
+}
+
+/* ナビゲーション */
+.menu ul {
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+    background-color: greenyellow
+}
+
+.menu li  a {
+    display: block;
+    padding: 10px;
+    color: #000000;
+    font-size: 14px;
+    text-decoration: none
+}
+
+.menu li a:hover { background-color: #eeeeee }
+
+.menu ul:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.menu li {
+    float: left;
+    width: auto
 }

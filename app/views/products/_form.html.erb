@@ -11,19 +11,23 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :商品名 %>
-    <%= form.text_field :productName, class: 'form-control' %>
+  <div class="form-group row">
+    <%= form.label :商品名, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_field :productName, class: 'form-control' %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :価格 %>
-    <%= form.text_field :price, class: 'form-control' %>
+  <div class="form-group row">
+    <%= form.label :価格, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">
+      <%= form.text_field :price, class: 'form-control' %>      
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :備考 %>
-    <%= form.text_field :remark, class: 'form-control' %>
+  <div class="form-group row">
+    <%= form.label :備考, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-4">       
+      <%= form.text_field :remark, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">

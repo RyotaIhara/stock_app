@@ -1,6 +1,6 @@
 <h1 class="label">入荷 or 出荷</h1>
 
-<%= form_with(model: @stock, local: true) do |form| %>
+<%= form_with(model: @stock, local: true ) do |form| %>
     <% if @stock.errors.any? %>
         <div id="error_explanation">
             <h4>エラーがあります:</h4>
@@ -24,17 +24,23 @@
         </div>
     <% end %>
 
-    <div class="form-group">
-        <%= form.label :productName, "商品名" %>
-        <%= form.collection_select :product_id, Product.all, :id, :productName, {}, class: 'form-control' %>
+    <div class="form-group row">
+        <%= form.label :productName, "商品名", class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-4">
+            <%= form.collection_select :product_id, Product.all, :id, :productName, {}, class: 'form-control' %>
+        </div>
     </div>
-    <div class="form-group">
-        <%= form.label :quantity, "個数" %>
-        <%= form.text_field :quantity, class: 'form-control' %>
+    <div class="form-group row">
+        <%= form.label :quantity, "個数", class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-4">
+            <%= form.text_field :quantity, class: 'form-control' %>
+        </div>
     </div>
-    <div class="form-group">
-        <%= form.label :inOutFlg, "入荷or出荷" %>
-        <%= form.select :inOutFlg, [['入荷', 1], ['出荷', 2]], {}, :class => 'form-control' %>
+    <div class="form-group row">
+        <%= form.label :inOutFlg, "入荷or出荷", class: "col-sm-2 col-form-label" %>
+        <div class="col-sm-4">
+            <%= form.select :inOutFlg, [['入荷', 1], ['出荷', 2]], {}, :class => 'form-control' %>
+        </div>
     </div>
 
     <div><%= form.submit("送信", class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %></div>

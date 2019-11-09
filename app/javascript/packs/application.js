@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("Chart.min")
 
 import "bootstrap"
 import "../stylesheets/application"
@@ -17,3 +18,7 @@ import "../stylesheets/application"
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+function out_log(){
+    console.log('Hello World from Webpacker');   
+}

@@ -21,21 +21,23 @@
           </ul>
         </div>
 
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-          <a class="navbar-brand" href="/stocks">在庫管理システム</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item <%= 'active' if current_page?(root_path) %>"><%= link_to "在庫一覧", stocks_path %></li>
-              <li class="nav-item <%= 'active' if current_page?(root_path) %>"><%= link_to "入荷or出荷", new_stock_path %></li>
-              <li class="nav-item <%= 'active' if current_page?(root_path) %>"><%= link_to "商品一覧", products_path %></li>
-              <li class="nav-item <%= 'active' if current_page?(root_path) %>"><%= link_to "商品新規登録", new_product_path %></li>
-              <li class="nav-item <%= 'active' if current_page?(root_path) %>"><%= link_to "会員名簿", users_path %></li>
-            </ul>
+        <div class="box1">
+          <div class="site">
+            <h1 class="title"><a href="/stocks">在庫管理システム</a></h1>
           </div>
-        </nav>
+        </div>
+        <div class="box2">
+          <nav class="menu">
+            <ul>
+              <li><%= link_to "在庫一覧", stocks_path %></li>
+              <li><%= link_to "入荷or出荷", new_stock_path %></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to "商品新規登録", new_product_path %></li>
+              <li><%= link_to "会員名簿", users_path %></li>
+            </ul>
+          </nav>
+        </div>
+
       <% end %>  
 
       <%= yield %>

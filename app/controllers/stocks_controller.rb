@@ -92,6 +92,10 @@ class StocksController < ApplicationController
         redirect_to :stocks, notice: "在庫を削除しました。"
     end
 
+    #管理画面
+    def dashBord
+    end
+
     #ストロングパラメーター
     private def stock_params
         params.require(:stock).permit(

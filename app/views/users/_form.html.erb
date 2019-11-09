@@ -10,31 +10,37 @@
         </ul>
       </div>
     <% end %>
-  
-    <div class="form-group">
-      <%= form.label :ユーザー名 %>
-      <%= form.text_field :name, class: 'form-control' %>
-    </div>
-  
-    <div class="form-group">
-      <%= form.label :メールアドレス %>
-      <%= form.text_field :email, class: 'form-control' %>
-    </div>
-  
-    <div class="form-group">
-      <%= form.label :パスワード %>
-      <%= form.text_field :password, class: 'form-control' %>
-    </div>
 
+    <div class="form-group row">
+      <%= form.label :ユーザー名, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-4">
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label :メールアドレス, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6">
+        <%= form.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label :パスワード, class: "col-sm-3 col-form-label" %>
+      <div class="col-sm-6">
+        <%= form.password_field :password, class: 'form-control' %>
+      </div>
+    </div>
     <% 
       @administrator = getAdministrator
       if current_user && @administrator
     %>
-      <div class="form-group">
-        <%= form.label :管理者 %>
-        <%= form.check_box :administrator, class: 'form-control' %>
+      <div class="form-group row">
+        <%= form.label :管理者, class: "col-sm-3 col-form-label" %>
+        <div class="col-sm-4">
+          <%= form.check_box :administrator, class: 'form-control' %>
+        </div>
       </div>
     <% end %>
+
   
     <div class="actions">
       <%= form.submit("保存", class: 'btn btn-primary btn-lg my-1 mb-5 px-3') %>
