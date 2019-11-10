@@ -94,6 +94,9 @@ class StocksController < ApplicationController
 
     #管理画面
     def dashBord
+        stock = Stock.pluck(:product_id, :quantity)
+        @stock = Hash[*stock.flatten]
+        logger.debug(@stock) 
     end
 
     #ストロングパラメーター

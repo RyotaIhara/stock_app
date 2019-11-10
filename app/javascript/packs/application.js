@@ -7,7 +7,8 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("Chart.min")
+require("chartkick") // 追記
+require("chart.js") // 追記
 
 import "bootstrap"
 import "../stylesheets/application"
